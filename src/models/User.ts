@@ -18,6 +18,9 @@ class User {
   updated_at: Date;
 
   @Column()
+  avatar: string;
+
+  @Column()
   email: string;
 
   @Column()
