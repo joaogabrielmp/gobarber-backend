@@ -5,7 +5,8 @@ import {
   TableForeignKey,
 } from 'typeorm';
 
-class CreateAppointments1592938568696 implements MigrationInterface {
+export default class CreateAppointments1592938568696
+  implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
@@ -60,5 +61,3 @@ class CreateAppointments1592938568696 implements MigrationInterface {
     await queryRunner.dropTable('appointments');
   }
 }
-
-export default CreateAppointments1592938568696;
