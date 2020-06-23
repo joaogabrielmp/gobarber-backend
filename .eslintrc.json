@@ -34,7 +34,13 @@
     "class-methods-use-this": "off",
     "no-console": "off",
     "@typescript-eslint/camelcase": "off",
-    "camelcase": "off"
+    "camelcase": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "_"
+      }
+    ]
   },
   "settings": {
     "import/resolver": {
