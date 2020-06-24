@@ -1,6 +1,7 @@
 node_modules/
 build/
 temp/
+coverage/
 
 tmp/*
 !tmp/.gitkeep

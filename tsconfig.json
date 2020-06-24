@@ -2,34 +2,27 @@
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
-    // "allowJs": true,
     "outDir": "./dist",
     "rootDir": "./src",
     "strict": true,
     "strictPropertyInitialization": false,
     "baseUrl": "./src",
+    "allowJs": true,
     "paths": {
-      "@modules/*": [
-        "modules/*"
-      ],
-      "@config/*": [
-        "config/*"
-      ],
-      "@shared/*": [
-        "shared/*"
-      ]
+      "@modules/*": ["modules/*"],
+      "@config/*": ["config/*"],
+      "@shared/*": ["shared/*"]
     },
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
-  // "exclude": [
-  //   "commitlint.config.js",
-  //   "coverage",
-  //   "jest.config.js",
-  //   "prettier.config.js",
-  //   "dist"
-  // ],
+  "exclude": [
+    "commitlint.config.js",
+    "coverage",
+    "jest.config.js",
+    "prettier.config.js",
+    "dist"
+  ]
 }
