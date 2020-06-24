@@ -1,31 +1,31 @@
 import AppError from '@shared/errors/AppError';
 
-import FakeUsersRepository from '../repositories/fakes/FakeUsersRepository';
-// import FakeHashProvider from '@modules/users/providers/HashProvider/fakes/FakeHashProvider';
+import FakeHashProvider from '@modules/users/providers/HashProvider/fakes/FakeHashProvider';
+import FakeUsersRepository from '@modules/users/repositories/fakes/FakeUsersRepository';
 // import FakeCacheProvider from '@shared/container/providers/CacheProvider/fakes/FakeCacheProvider';
 import CreateUserService from './CreateUserService';
 
 let createUser: CreateUserService;
+let fakeHashProvider: FakeHashProvider;
 let fakeUsersRepository: FakeUsersRepository;
-// let fakeHashProvider: FakeHashProvider;
 // let fakeCacheProvider: FakeCacheProvider;
 
 describe('CreateUser', () => {
   beforeEach(() => {
     fakeUsersRepository = new FakeUsersRepository();
-    // fakeHashProvider = new FakeHashProvider();
+    fakeHashProvider = new FakeHashProvider();
     // fakeCacheProvider = new FakeCacheProvider();
     createUser = new CreateUserService(
+      fakeHashProvider,
       fakeUsersRepository,
-      // fakeHashProvider,
       // fakeCacheProvider,
     );
   });
 
   it('should be able to craete a new user', async () => {
     const user = await createUser.execute({
-      name: 'John Doe',
       email: 'johndoe@example.com',
+      name: 'John Doe',
       password: '123456',
     });
 
@@ -34,15 +34,15 @@ describe('CreateUser', () => {
 
   it('should not be able to craete a new user with same email from another', async () => {
     await createUser.execute({
-      name: 'John Doe',
       email: 'johndoe@example.com',
+      name: 'John Doe',
       password: '123456',
     });
 
     await expect(
       createUser.execute({
-        name: 'John Doe',
         email: 'johndoe@example.com',
+        name: 'John Doe',
         password: '123456',
       }),
     ).rejects.toBeInstanceOf(AppError);
