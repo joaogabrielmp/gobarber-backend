@@ -4,9 +4,9 @@ import FakeUsersRepository from '@modules/users/repositories/fakes/FakeUsersRepo
 import FakeHashProvider from '@modules/users/providers/HashProvider/fakes/FakeHashProvider';
 import AuthenticateUserService from './AuthenticateUserService';
 
+let authenticateUser: AuthenticateUserService;
 let fakeUsersRepository: FakeUsersRepository;
 let fakeHashProvider: FakeHashProvider;
-let authenticateUser: AuthenticateUserService;
 
 describe('AuthentiacteUser', () => {
   beforeEach(() => {
