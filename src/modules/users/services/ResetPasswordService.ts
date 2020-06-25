@@ -1,5 +1,5 @@
 import { addHours, isAfter } from 'date-fns';
-import { injectable, inject } from 'tsyringe';
+import { inject, injectable } from 'tsyringe';
 
 import AppError from '@shared/errors/AppError';
 import IHashProvider from '@modules/users/providers/HashProvider/models/IHashProvider';
