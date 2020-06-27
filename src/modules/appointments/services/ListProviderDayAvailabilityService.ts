@@ -1,4 +1,4 @@
-import { injectable, inject } from 'tsyringe';
+import { inject, injectable } from 'tsyringe';
 import { getHours, isAfter } from 'date-fns';
 
 import IAppointmentsRepository from '@modules/appointments/repositories/IAppointmentsRepository';
@@ -38,9 +38,10 @@ class ListProviderDayAvailabilityService {
     );
 
     const hourStart = 8;
+
     const eachHourArray = Array.from(
       { length: 10 },
-      (_, index) => index + hourStart,
+      (_value, index) => index + hourStart,
     );
 
     const currentDate = new Date(Date.now());
