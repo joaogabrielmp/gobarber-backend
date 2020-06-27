@@ -1,4 +1,4 @@
-import { injectable, inject } from 'tsyringe';
+import { inject, injectable } from 'tsyringe';
 
 import IUsersRepository from '@modules/users/repositories/IUsersRepository';
 import ICacheProvider from '@shared/container/providers/CacheProvider/models/ICacheProvider';
@@ -12,11 +12,11 @@ interface IRequest {
 @injectable()
 class ListProvidersService {
   constructor(
-    @inject('UsersRepository')
-    private usersRepository: IUsersRepository,
-
     @inject('CacheProvider')
     private cacheProvider: ICacheProvider,
+
+    @inject('UsersRepository')
+    private usersRepository: IUsersRepository,
   ) {}
 
   public async execute({ user_id }: IRequest): Promise<User[]> {
@@ -26,7 +26,7 @@ class ListProvidersService {
 
     if (!users) {
       users = await this.usersRepository.findAllProviders({
-        execept_user_id: user_id,
+        except_user_id: user_id,
       });
 
       await this.cacheProvider.save(`providers-list:${user_id}`, users);

@@ -1,4 +1,4 @@
-// import { classToClass, plainToClass } from 'class-transformer';
+import { classToClass, plainToClass } from 'class-transformer';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
@@ -13,7 +13,6 @@ export default class ProvidersController {
 
     const providers = await listProviders.execute({ user_id });
 
-    // return res.json(classToClass(plainToClass(User, providers)));
-    return res.json();
+    return res.json(classToClass(plainToClass(User, providers)));
   }
 }
