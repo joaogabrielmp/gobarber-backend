@@ -1,4 +1,4 @@
-import { injectable, inject } from 'tsyringe';
+import { inject, injectable } from 'tsyringe';
 import { getDaysInMonth, getDate, isAfter } from 'date-fns';
 
 import IAppointmentsRepository from '@modules/appointments/repositories/IAppointmentsRepository';
@@ -10,8 +10,8 @@ interface IRequest {
 }
 
 type IResponse = Array<{
-  day: number;
   available: boolean;
+  day: number;
 }>;
 
 @injectable()
