@@ -12,8 +12,8 @@ describe('ListProviders', () => {
     fakeUsersRepository = new FakeUsersRepository();
 
     listProviders = new ListProvidersService(
-      fakeUsersRepository,
       fakeCacheProvider,
+      fakeUsersRepository,
     );
   });
 
