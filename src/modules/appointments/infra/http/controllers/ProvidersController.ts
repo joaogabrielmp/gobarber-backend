@@ -6,13 +6,13 @@ import ListProvidersService from '@modules/appointments/services/ListProvidersSe
 import User from '@modules/users/infra/typeorm/entities/User';
 
 export default class ProvidersController {
-  public async index(req: Request, res: Response): Promise<Response> {
-    const user_id = req.user.id;
+  public async index(request: Request, response: Response): Promise<Response> {
+    const user_id = request.user.id;
 
     const listProviders = container.resolve(ListProvidersService);
 
     const providers = await listProviders.execute({ user_id });
 
-    return res.json(classToClass(plainToClass(User, providers)));
+    return response.json(classToClass(plainToClass(User, providers)));
   }
 }
