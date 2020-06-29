@@ -29,6 +29,8 @@
     "@typescript-eslint/camelcase": "off",
     "no-useless-constructor": "off",
     "class-methods-use-this": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "no-console": "off",
     "@typescript-eslint/naming-convention": [
       "error",
       {
@@ -48,6 +50,9 @@
         "argsIgnorePattern": "_"
       }
     ],
+    "@typescript-eslint/explicit-module-boundary-types": ["warn", {
+      "allowArgumentsExplicitlyTypedAsAny": true
+    }],
     "import/extensions": [
       "error",
       "ignorePackages",
