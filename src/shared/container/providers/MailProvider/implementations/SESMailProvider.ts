@@ -1,6 +1,6 @@
+import aws from 'aws-sdk';
 import nodemailer, { Transporter } from 'nodemailer';
 import { injectable, inject } from 'tsyringe';
-import aws from 'aws-sdk';
 
 import mailConfig from '@config/mail';
 
